@@ -1,0 +1,310 @@
+
+<html>
+    <head>
+        <title>Pick a card</title>
+        <link rel="stylesheet" type="text/css" href="css.css" />
+        <script>
+        
+        //Total list of chosen cards IMAGES
+        var cards = new Array();
+        //temporary array to add cards to cards array 
+        var classes = new Array();
+        //counting variable & chosen hero 
+        var count, heroChoice;
+
+        function onLoad()
+        {
+            classes = getClassIndicator();
+            count = 0;
+        }
+        function clickOne()
+        { clickHelper(0); }
+        function clickTwo()
+        { clickHelper(1); }
+        function clickThree()
+        { clickHelper(2); }
+
+        function clickHelper(amt)
+        {
+            if (count < 30)
+            {
+                if(count == 0)
+                    heroChoice = classes[amt];
+                else
+                    cards[count] = classes[amt];
+                count++;
+                heroChosen();
+                document.getElementById("chooseheader").innerHTML = "Pick Card: " + count;
+                if(count == 1)
+                {
+                    var x = heroChosenHelper(heroChoice);
+                    document.getElementById("class").innerHTML = "Class Chosen: " + x;
+                    document.getElementById("class2").innerHTML = "Cards: ";
+                }
+                document.getElementById("cards").appendChild(cards[count-1]);
+            } 
+            else
+            {
+                count++;
+                cards[count] = classes[2];
+                document.getElementById("chooseheader").innerHTML = "Good Luck in The Arena";
+                document.getElementById("cards").appendChild(cards[count]);
+            }
+        }
+
+        //helper function to set what class was chosen 
+        function heroChosenHelper(x)
+        {
+            if(x == 91)                 return "Rogue";
+            else if(x == 92)            return "Priest";
+            else if(x == 93)            return "Mage";
+            else if(x == 94)            return "Paladin";
+            else if(x == 95)            return "Shaman";
+            else if(x == 96)            return "Hunter";
+            else if(x == 97)            return "Warlock";
+            else if(x == 98)            return "Druid";
+            else if(x == 99)            return "Warrior";
+        }
+
+        //figures out which hero you chose and sends you to their card pickers
+        function heroChosen()
+        {
+            if(heroChoice == 91)        rogueChooser();
+            else if(heroChoice == 92)   priestChooser();
+            else if(heroChoice == 93)   mageChooser();
+            else if(heroChoice == 94)   paladinChooser();
+            else if(heroChoice == 95)   shamanChooser();
+            else if(heroChoice == 96)   hunterChooser();
+            else if(heroChoice == 97)   warlockChooser();
+            else if(heroChoice == 98)   druidChooser();
+            else if(heroChoice == 99)   warriorChooser();
+        }
+
+        function rogueChooser()
+        {
+            //neutral vs class
+            var type = getType("rogue");
+            //gets the rarity
+            var rarity = getRarity();
+            cardNumberHelper(9, rarity, type, 10,6,5,3);
+        }
+
+        function priestChooser()
+        {
+            //neutral vs class
+            var type = getType("priest");
+            //gets the rarity
+            var rarity = getRarity();
+            cardNumberHelper(13, rarity, type, 10,6,5,3);
+        }
+
+        function mageChooser()
+        {
+            //neutral vs class
+            var type = getType("mage");
+            //gets the rarity
+            var rarity = getRarity();
+            cardNumberHelper(12, rarity, type, 10,6,5,3);
+        }
+
+        function paladinChooser()
+        {
+            //neutral vs class
+            var type = getType("paladin");
+            //gets the rarity
+            var rarity = getRarity();
+            cardNumberHelper(10, rarity, type, 10,6,4,3);
+        }
+
+        function shamanChooser()
+        {
+            //neutral vs class
+            var type = getType("shaman");
+            //gets the rarity
+            var rarity = getRarity();
+            cardNumberHelper(7, rarity, type, 10,6,6,3);
+        }
+
+        function hunterChooser()
+        {
+            //neutral vs class
+            var type = getType("hunter");
+            //gets the rarity
+            var rarity = getRarity();
+            cardNumberHelper(14, rarity, type, 10,6,5,3);
+        }
+
+        function warlockChooser()
+        {
+            //neutral vs class
+            var type = getType("warlock");
+            //gets the rarity
+            var rarity = getRarity();
+            cardNumberHelper(11, rarity, type, 10,6,5,3);
+        }
+
+        function druidChooser()
+        {
+            //neutral vs class
+            var type = getType("druid");
+            //gets the rarity
+            var rarity = getRarity();
+            cardNumberHelper(8, rarity, type, 10,6,4,3);
+        }
+
+        function warriorChooser()
+        {
+            //neutral vs class
+            var type = getType("warrior");
+            //gets the rarity
+            var rarity = getRarity();
+            cardNumberHelper(6, rarity, type, 10,6,5,3);
+        }
+
+        function cardNumberHelper(classType, rarity, type, a, b, c, d)
+        {
+            if(type == classType)
+            {
+                if (rarity == "basic")          setClassHelper(type,a);
+                else if (rarity == "common")    setClassHelper(type,b);
+                else if (rarity == "rare")      setClassHelper(type,c);
+                else if (rarity == "epic")      setClassHelper(type,d);
+                else if (rarity == "legendary") setClassHelper(5, 27);
+            }
+            else
+                setNeutrals();
+        }
+
+        function setNeutrals()
+        {
+            var numRarity;
+            var rarity = getRarity();
+
+            if (rarity == "basic")          numRarity = 1;
+            else if (rarity == "common")    numRarity = 2;
+            else if (rarity == "rare")      numRarity = 4;
+            else if (rarity == "epic")      numRarity = 3;
+            else if (rarity == "legendary") numRarity = 5;
+
+            //if neutral basic
+            if(numRarity == 1)              setClassHelper(numRarity, 43);
+            //if neutral common
+            else if(numRarity == 2)         setClassHelper(numRarity, 40);
+            //if nuetral epic
+            else if(numRarity == 3)         setClassHelper(numRarity, 10);
+            //if neutral rare
+            else if(numRarity == 4)         setClassHelper(numRarity, 36);
+            //if neutral legendary
+            else if(numRarity == 5)         setClassHelper(5, 27);
+        }
+
+        function getRarity()
+        {
+            //generate number 1-100 to select rarity
+            var x = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
+            if(x < 40)          return "basic";
+            else if(x < 80)     return "common";
+            else if(x < 90)     return "rare";
+            else if(x < 98)     return "epic";
+            else                return "legendary";
+        }
+
+        function getType(tempClass)
+        {
+            //random number to determine type
+            var x = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
+            if(x < 35)
+            {
+                if(tempClass == "rogue")            return 9;
+                else if(tempClass == "priest")      return 13;
+                else if(tempClass == "mage")        return 12;
+                else if(tempClass == "paladin")     return 10;
+                else if(tempClass == "shaman")      return 7;
+                else if(tempClass == "hunter")      return 14;
+                else if(tempClass == "warlock")     return 11;
+                else if(tempClass == "druid")       return 8;
+                else if(tempClass == "warrior")     return 6;
+            }
+            //doesnt matter what number is returned as long as its not one of the hero numbers
+            else                                    return 1;
+        }
+
+        //Sets the hero images
+        function getClassIndicator()
+        {
+            var x = Math.floor(Math.random() * (9 - 1 + 1)) + 91;
+            var y = Math.floor(Math.random() * (9 - 1 + 1)) + 91;
+            var z = Math.floor(Math.random() * (9 - 1 + 1)) + 91;
+            while(x == y || y == z || z == x)
+            {
+                if(x == y)
+                    x = Math.floor(Math.random() * (9 - 1 + 1)) + 91;
+                if(z == y)
+                    y = Math.floor(Math.random() * (9 - 1 + 1)) + 91;
+                if(x == z)
+                    z = Math.floor(Math.random() * (9 - 1 + 1)) + 91;
+            }
+            var classSet = new Array(x,y,z);
+
+            document.getElementById("pick1").style.backgroundImage = "url('img/15 (" + classSet[0] + ").png')";
+            document.getElementById("pick2").style.backgroundImage = "url('img/15 (" + classSet[1] + ").png')";
+            document.getElementById("pick3").style.backgroundImage = "url('img/15 (" + classSet[2] + ").png')";
+            //return array length three of ints 1-9
+            return classSet;
+        }
+
+        function setClassHelper(type, numCards)
+        {
+            var x = Math.floor(Math.random() * (numCards - 1 + 1)) + 1;
+            var y = Math.floor(Math.random() * (numCards - 1 + 1)) + 1;
+            var z = Math.floor(Math.random() * (numCards - 1 + 1)) + 1;
+
+            while(x == y || y == z || z == x)
+            {
+                if(x == y)
+                    x = Math.floor(Math.random() * (numCards - 1 + 1)) + 1;
+                if(z == y)
+                    y = Math.floor(Math.random() * (numCards - 1 + 1)) + 1;
+                if(x == z)
+                    z = Math.floor(Math.random() * (numCards - 1 + 1)) + 1;
+            }
+
+            document.getElementById("pick1").style.backgroundImage = "url('img/" + type + " (" + x + ").png')";
+            document.getElementById("pick2").style.backgroundImage = "url('img/" + type + " (" + y + ").png')";
+            document.getElementById("pick3").style.backgroundImage = "url('img/" + type + " (" + z + ").png')";
+            //add set of class cards to temporary array
+            classes[0] = new Image();
+            classes[0].src = "img/" + type + " (" + x + ").png";
+            classes[0].style.width = '115px';
+            classes[0].style.height = 'auto';
+            classes[1] = new Image();
+            classes[1].src = "img/" + type + " (" + y + ").png";
+            classes[1].style.width = '115px';
+            classes[1].style.height = 'auto';
+            classes[2] = new Image();
+            classes[2].src = "img/" + type + " (" + z + ").png";
+            classes[2].style.width = '115px';
+            classes[2].style.height = 'auto';
+        }
+
+        </script>
+    </head>
+    <body onload = "onLoad();">
+        
+        <div class="pick-container">
+            <div id="chooseheader">Choose a Hero</div>
+            <div class="pick q3" id="pick1" onclick="clickOne();">
+               
+            </div>
+            <div class="pick q3" id="pick2" onclick="clickTwo();">
+                
+            </div>
+            <div class="pick q3" id="pick3" onclick="clickThree();">
+                
+            </div>
+        </div>
+        <h1 id="class"></h1>
+        <h2 id="class2"></h2>
+        <div id="cards"></div>
+    </body>
+</html>

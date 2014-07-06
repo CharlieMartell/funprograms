@@ -1,0 +1,103 @@
+
+body
+{
+    background-image: url("hearthstones.jpg");
+    background-color: #181818;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+}
+.pick-container
+{
+    width:900px;
+    height:495px;
+    margin:0 auto;
+    overflow:hidden;
+    background:rgba(0,0,0, .3);
+    border-radius:6px;
+}
+
+#chooseheader
+{
+    text-align:center;
+    height:30px;
+    margin-top:15px;
+    font-size:25px;
+    font-weight:bold;
+    color:white;
+}
+
+.pick-container
+{
+    width:900px;
+    height:500px;
+    position:relative;
+}
+
+.pick-container .pick
+{
+    width:300px;
+    height:400px;
+    position:absolute;
+}
+
+.pick-container #pick1
+{
+	background-repeat: no-repeat;
+}
+
+.pick-container #pick1:hover, element:active
+{
+    cursor: pointer;
+    box-shadow: 50 0 20px #000000;
+}
+
+.pick-container #pick2
+{
+    left:300px;
+	background-repeat: no-repeat;
+}
+
+.pick-container #pick2:hover, element:active
+{
+   cursor: pointer;
+   box-shadow: 50 0 20px #000000;
+}
+
+.pick-container #pick3
+{
+    left:600px;
+	background-repeat: no-repeat;
+}
+
+.pick-container #pick3:hover, element:active
+{
+   cursor: pointer;
+   box-shadow: 50 0 20px #000000;
+}
+
+.pick-container .pick .pick-image
+{
+    width:300px;
+    height:450px;
+    margin:0 auto;
+    background-position:0 -30px;
+    display:inline-block;
+    background-size:auto;
+}
+
+.cards
+{
+    width: 100%;
+    height: auto;
+}
+
+#class
+{
+    color: white;
+}
+
+#class2
+{
+    color: white;
+}

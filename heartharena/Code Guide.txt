@@ -1,0 +1,71 @@
+//Hero choice
+//Roll for class card
+//Roll for rariety
+	//Different function for Legen to pick from Neutrals plus Classes
+//Roll for card
+//Ranges for cards
+FORMAT FOR CARD NAMES X_(Y).png
+X=Class Indicator or Rariety for Neutrals
+_=Space between X and ( in every image name
+Y=Card Identifier, Ranges in a class indicate rariety(vary)
+	//Neutrals
+		//Basics 1(1-43)
+		//Comm	 2(1-40)
+		//Rare	 4(1-36)
+		//Epic	 3(1-10)
+		//Legen  5(1-27)
+	//Rogue-9
+		//Basics (1-10)
+		//Comm	 (11-16)
+		//Rare	 (17-21)
+		//Epic	 (22-24)
+		//Legen	 (25)
+	//Priest-13
+		//Basics (1-10)
+		//Comm	 (11-16)
+		//Rare	 (17-21)
+		//Epic	 (22-24)
+		//Legen	 (25)
+	//Mage-12
+		//Basics (1-10)
+		//Comm	 (11-16)
+		//Rare	 (17-21)
+		//Epic	 (22-24)
+		//Legen	 (25)
+	//Paly-10
+		//Basics (1-10)
+		//Comm	 (11-16)
+		//Rare	 (17-20)
+		//Epic	 (21-23)
+		//Legen	 (24)
+	//Shaman-7
+		//Basics (1-10)
+		//Comm	 (11-16)
+		//Rare	 (17-22)
+		//Epic	 (23-25)
+		//Legen	 (26)
+	//Hunter-14
+		//Basics (1-10)
+		//Comm	 (11-16)
+		//Rare	 (17-21)
+		//Epic	 (22-24)
+		//Legen	 (25)
+	//Warlock-11
+		//Basics (1-10)
+		//Comm	 (11-16)
+		//Rare	 (17-21)
+		//Epic	 (22-24)
+		//Legen	 (25)
+	//Druid-8
+		//Basics (1-10)
+		//Comm	 (11-16)
+		//Rare	 (17-20)
+		//Epic	 (21-23)
+		//Legen	 (24)
+	//Warrior-6
+		//Basics (1-10)
+		//Comm	 (11-16)
+		//Rare	 (17-21)
+		//Epic	 (22-24)
+		//Legen	 (25)
+		
