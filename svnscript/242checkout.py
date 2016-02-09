@@ -53,7 +53,6 @@ def checkout_update_dirs(students):
     for student in students:
         student_dir = "%s%s" % (directory, student)
         if not os.path.exists("%s/%s" % (student_dir, ".svn")):
-            print(student)
             print("Student: %s repository not checked out, checking out" % (student))
             command = "%s%s %s" % (svn_checkout, student, student_dir)
             print("Running Command %s" % (command))
